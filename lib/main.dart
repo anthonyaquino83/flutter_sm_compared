@@ -34,20 +34,21 @@ class _MainAppState extends State<MainApp> {
               Text('State Management Compared'),
               // 64 loc (widget and dependencies with autoformat)
               SetStateExample(),
-              // 85 loc
+              // 75 loc
               InheritedWidgetExample(),
               // 80 loc
               ChangeNotifierExample(),
-              // 88 loc
+              // 86 loc
               CubitExample(),
-              // 75 loc
+              // 73 loc
               ValueListenableBuilderExample(),
-              // 72 loc
+              // 70 loc
               ValueNotifierExample(),
-              // 60 loc
+              // 58 loc
               ProviderScope(child: RiverpodExample()),
-              // 63 loc
+              // 61 loc
               SignalsExample(),
+              // 91 loc
               ValueNotifierExample2(),
             ],
           ),
