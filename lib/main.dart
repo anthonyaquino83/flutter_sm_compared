@@ -8,6 +8,7 @@ import 'cubit_example.dart';
 import 'inheritedwidget_example.dart';
 import 'valuenotifier_example.dart';
 import 'valuelistenablebuilder_example.dart';
+import 'valuenotifier_example2.dart';
 
 void main() {
   runApp(const MainApp());
@@ -47,6 +48,7 @@ class _MainAppState extends State<MainApp> {
               ProviderScope(child: RiverpodExample()),
               // 63 loc
               SignalsExample(),
+              ValueNotifierExample2(),
             ],
           ),
         ),
