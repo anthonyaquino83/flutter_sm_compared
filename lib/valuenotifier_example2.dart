@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 final count1 = ValueNotifier(0);
 final count2 = ValueNotifier(0);
-final total = Total();
+final total = TotalNotifier();
 final isEvenNotifier = IsEvenNotifier();
 final isOddNotifier = IsOddNotifier();
 
-class Total extends ValueNotifier<int> {
-  Total() : super(count1.value + count2.value) {
+class TotalNotifier extends ValueNotifier<int> {
+  TotalNotifier() : super(count1.value + count2.value) {
     count1.addListener(() {
       value = count1.value + count2.value;
     });
