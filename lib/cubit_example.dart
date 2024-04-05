@@ -26,7 +26,7 @@ class _CubitExampleState extends State<CubitExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.grey,
+      color: Colors.yellow,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(

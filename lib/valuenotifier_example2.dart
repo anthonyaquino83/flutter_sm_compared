@@ -55,7 +55,7 @@ class _ValueNotifierExample2State extends State<ValueNotifierExample2> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.red,
+      color: Colors.cyan,
       child: Column(
         children: [
           Row(

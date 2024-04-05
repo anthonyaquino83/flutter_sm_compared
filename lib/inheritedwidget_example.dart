@@ -29,7 +29,7 @@ class _InheritedWidgetExampleState extends State<InheritedWidgetExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.purple,
+      color: Colors.green,
       child: Column(
         children: [
           InheritedCounter(

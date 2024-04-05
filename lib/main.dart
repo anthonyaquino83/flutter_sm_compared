@@ -32,7 +32,7 @@ class _MainAppState extends State<MainApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('State Management Compared'),
-              // 64 loc (widget and dependencies with autoformat)
+              // 64 loc (VSCodeCounter and same Flutter autoformat)
               SetStateExample(),
               // 75 loc
               InheritedWidgetExample(),
