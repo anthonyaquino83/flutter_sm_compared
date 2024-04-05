@@ -27,31 +27,29 @@ class _MainAppState extends State<MainApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('State Management Compared'),
-              // 64 loc (VSCodeCounter and same Flutter autoformat)
-              SetStateExample(),
-              // 75 loc
-              InheritedWidgetExample(),
-              // 80 loc
-              ChangeNotifierExample(),
-              // 86 loc
-              CubitExample(),
-              // 73 loc
-              ValueListenableBuilderExample(),
-              // 70 loc
-              ValueNotifierExample(),
-              // 58 loc
-              ProviderScope(child: RiverpodExample()),
-              // 61 loc
-              SignalsExample(),
-              // 91 loc
-              ValueNotifierExample2(),
-            ],
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text('State Management Compared'),
+            // 64 loc (VSCodeCounter and same Flutter autoformat)
+            SetStateExample(),
+            // 75 loc
+            InheritedWidgetExample(),
+            // 80 loc
+            ChangeNotifierExample(),
+            // 86 loc
+            CubitExample(),
+            // 73 loc
+            ValueListenableBuilderExample(),
+            // 70 loc
+            ValueNotifierExample(),
+            // 58 loc
+            ProviderScope(child: RiverpodExample()),
+            // 61 loc
+            SignalsExample(),
+            // 91 loc
+            ValueNotifierExample2(),
+          ],
         ),
       ),
     );
