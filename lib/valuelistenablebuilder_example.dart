@@ -2,6 +2,36 @@ import 'package:flutter/material.dart';
 
 final counter1 = ValueNotifier(0);
 final counter2 = ValueNotifier(0);
+final total = TotalNotifier();
+final isEven = IsEvenNotifier();
+final isOdd = IsOddNotifier();
+
+class TotalNotifier extends ValueNotifier<int> {
+  TotalNotifier() : super(counter1.value + counter2.value) {
+    counter1.addListener(() {
+      value = counter1.value + counter2.value;
+    });
+    counter2.addListener(() {
+      value = counter1.value + counter2.value;
+    });
+  }
+}
+
+class IsEvenNotifier extends ValueNotifier<bool> {
+  IsEvenNotifier() : super(total.value.isEven) {
+    total.addListener(() {
+      value = total.value.isEven;
+    });
+  }
+}
+
+class IsOddNotifier extends ValueNotifier<bool> {
+  IsOddNotifier() : super(total.value.isOdd) {
+    total.addListener(() {
+      value = total.value.isOdd;
+    });
+  }
+}
 
 class ValueListenableBuilderExample extends StatefulWidget {
   const ValueListenableBuilderExample({
@@ -15,10 +45,6 @@ class ValueListenableBuilderExample extends StatefulWidget {
 
 class _ValueListenableBuilderExampleState
     extends State<ValueListenableBuilderExample> {
-  int get total => counter1.value + counter2.value;
-  bool get isEven => total.isEven;
-  bool get isOdd => total.isOdd;
-
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
@@ -60,9 +86,24 @@ class _ValueListenableBuilderExampleState
                               ),
                             ],
                           ),
-                          Text(
-                            'Total VN + VLB: $total even=$isEven odd=$isOdd',
-                          ),
+                          ValueListenableBuilder(
+                              valueListenable: total,
+                              builder: (context, total, child) {
+                                return ValueListenableBuilder(
+                                    valueListenable: isEven,
+                                    builder: (context, isEven, child) {
+                                      return ValueListenableBuilder(
+                                          valueListenable: isOdd,
+                                          builder: (context, isOdd, child) {
+                                            return Text(
+                                              'Total VN + VLB: $total even=$isEven odd=$isOdd',
+                                            );
+                                          });
+                                    });
+                              }),
+                          // Text(
+                          //   'Total VN + VLB: $total even=$isEven odd=$isOdd',
+                          // ),
                         ],
                       );
                     },

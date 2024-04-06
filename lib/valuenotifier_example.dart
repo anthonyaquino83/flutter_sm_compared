@@ -2,6 +2,36 @@ import 'package:flutter/material.dart';
 
 final counter1 = ValueNotifier(0);
 final counter2 = ValueNotifier(0);
+final total = TotalNotifier();
+final isEven = IsEvenNotifier();
+final isOdd = IsOddNotifier();
+
+class TotalNotifier extends ValueNotifier<int> {
+  TotalNotifier() : super(counter1.value + counter2.value) {
+    counter1.addListener(() {
+      value = counter1.value + counter2.value;
+    });
+    counter2.addListener(() {
+      value = counter1.value + counter2.value;
+    });
+  }
+}
+
+class IsEvenNotifier extends ValueNotifier<bool> {
+  IsEvenNotifier() : super(total.value.isEven) {
+    total.addListener(() {
+      value = total.value.isEven;
+    });
+  }
+}
+
+class IsOddNotifier extends ValueNotifier<bool> {
+  IsOddNotifier() : super(total.value.isOdd) {
+    total.addListener(() {
+      value = total.value.isOdd;
+    });
+  }
+}
 
 class ValueNotifierExample extends StatefulWidget {
   const ValueNotifierExample({
@@ -9,23 +39,15 @@ class ValueNotifierExample extends StatefulWidget {
   });
 
   @override
-  State<ValueNotifierExample> createState() => _ValueNotifierExampleState();
+  State<ValueNotifierExample> createState() => _ValueNotifierExampleStat();
 }
 
-class _ValueNotifierExampleState extends State<ValueNotifierExample> {
-  int get total => counter1.value + counter2.value;
-  bool get isEven => total.isEven;
-  bool get isOdd => total.isOdd;
-
+class _ValueNotifierExampleStat extends State<ValueNotifierExample> {
   @override
   void initState() {
     super.initState();
 
-    counter1.addListener(() {
-      if (mounted) setState(() {});
-    });
-
-    counter2.addListener(() {
+    total.addListener(() {
       if (mounted) setState(() {});
     });
   }
@@ -33,7 +55,7 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.orange,
+      color: Colors.cyan,
       child: Column(
         children: [
           Row(
@@ -65,7 +87,7 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
                     ],
                   ),
                   Text(
-                    'Total VN + setState: $total even=$isEven odd=$isOdd',
+                    'Total VN: ${total.value} even=${isEven.value} odd=${isOdd.value}',
                   ),
                 ],
               ),

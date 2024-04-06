@@ -8,7 +8,6 @@ import 'cubit_example.dart';
 import 'inheritedwidget_example.dart';
 import 'valuenotifier_example.dart';
 import 'valuelistenablebuilder_example.dart';
-import 'valuenotifier_example2.dart';
 
 void main() {
   runApp(const MainApp());
@@ -28,25 +27,25 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('State Management Compared'),
             // 64 loc (VSCodeCounter and same Flutter autoformat)
+            // internal packages
             SetStateExample(),
             // 75 loc
             InheritedWidgetExample(),
             // 80 loc
             ChangeNotifierExample(),
-            // 73 loc
-            ValueListenableBuilderExample(),
-            // 70 loc
+            // 91 loc
             ValueNotifierExample(),
+            // 109 loc
+            ValueListenableBuilderExample(),
+            // external packages
             // 58 loc
             ProviderScope(child: RiverpodExample()),
             // 61 loc
             SignalsExample(),
-            // 91 loc
-            ValueNotifierExample2(),
             // 120 loc
             CubitExample(),
           ],
