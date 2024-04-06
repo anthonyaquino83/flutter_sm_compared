@@ -37,8 +37,6 @@ class _MainAppState extends State<MainApp> {
             InheritedWidgetExample(),
             // 80 loc
             ChangeNotifierExample(),
-            // 86 loc
-            CubitExample(),
             // 73 loc
             ValueListenableBuilderExample(),
             // 70 loc
@@ -49,6 +47,8 @@ class _MainAppState extends State<MainApp> {
             SignalsExample(),
             // 91 loc
             ValueNotifierExample2(),
+            // 120 loc
+            CubitExample(),
           ],
         ),
       ),

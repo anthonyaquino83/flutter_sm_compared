@@ -10,9 +10,9 @@ class SetStateExample extends StatefulWidget {
 }
 
 class _SetStateExampleState extends State<SetStateExample> {
-  int count1 = 0;
-  int count2 = 0;
-  int get total => count1 + count2;
+  int counter1 = 0;
+  int counter2 = 0;
+  int get total => counter1 + counter2;
   bool get isEven => total.isEven;
   bool get isOdd => total.isOdd;
 
@@ -33,21 +33,21 @@ class _SetStateExampleState extends State<SetStateExample> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            count1++;
+                            counter1++;
                           });
                         },
                         child: const Text('Counter 1'),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '$count1 - $count2',
+                        '$counter1 - $counter2',
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            count2++;
+                            counter2++;
                           });
                         },
                         child: const Text('Counter 2'),

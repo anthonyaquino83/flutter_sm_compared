@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
-final count1signal = signal(0);
-final count2signal = signal(0);
-final totalComputed = computed(() => count1signal.value + count2signal.value);
+final counter1signal = signal(0);
+final counter2signal = signal(0);
+final totalComputed =
+    computed(() => counter1signal.value + counter2signal.value);
 final isEvenComputed = computed(() => totalComputed.value.isEven);
 final isOddComputed = computed(() => totalComputed.value.isOdd);
 
@@ -33,19 +34,19 @@ class _SignalsExampleState extends State<SignalsExample> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          count1signal.value++;
+                          counter1signal.value++;
                         },
                         child: const Text('Counter 1'),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${count1signal.watch(context)} - ${count2signal.watch(context)} ',
+                        '${counter1signal.watch(context)} - ${counter2signal.watch(context)} ',
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
-                          count2signal.value++;
+                          counter2signal.value++;
                         },
                         child: const Text('Counter 2'),
                       ),

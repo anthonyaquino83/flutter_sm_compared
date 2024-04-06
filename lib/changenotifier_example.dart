@@ -30,19 +30,19 @@ class _ChangeNotifierExampleState extends State<ChangeNotifierExample> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              counterNotifier.count1++;
+                              counterNotifier.counter1++;
                             },
                             child: const Text('Counter 1'),
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '${counterNotifier.count1} - ${counterNotifier.count2}',
+                            '${counterNotifier.counter1} - ${counterNotifier.counter2}',
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           const SizedBox(width: 8),
                           ElevatedButton(
                             onPressed: () {
-                              counterNotifier.count2++;
+                              counterNotifier.counter2++;
                             },
                             child: const Text('Counter 2'),
                           ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-final count1 = ValueNotifier(0);
-final count2 = ValueNotifier(0);
+final counter1 = ValueNotifier(0);
+final counter2 = ValueNotifier(0);
 final total = TotalNotifier();
 final isEvenNotifier = IsEvenNotifier();
 final isOddNotifier = IsOddNotifier();
 
 class TotalNotifier extends ValueNotifier<int> {
-  TotalNotifier() : super(count1.value + count2.value) {
-    count1.addListener(() {
-      value = count1.value + count2.value;
+  TotalNotifier() : super(counter1.value + counter2.value) {
+    counter1.addListener(() {
+      value = counter1.value + counter2.value;
     });
-    count2.addListener(() {
-      value = count1.value + count2.value;
+    counter2.addListener(() {
+      value = counter1.value + counter2.value;
     });
   }
 }
@@ -68,19 +68,19 @@ class _ValueNotifierExample2State extends State<ValueNotifierExample2> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          count1.value++;
+                          counter1.value++;
                         },
                         child: const Text('Counter 1'),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${count1.value} - ${count2.value}',
+                        '${counter1.value} - ${counter2.value}',
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
-                          count2.value++;
+                          counter2.value++;
                         },
                         child: const Text('Counter 2'),
                       ),

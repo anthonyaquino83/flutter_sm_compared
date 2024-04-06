@@ -13,6 +13,17 @@ class Counter2Cubit extends Cubit<int> {
   void increment() => emit(state + 1);
 }
 
+class TotalCubit extends Cubit<(int total, bool isOdd, bool isEven)> {
+  TotalCubit() : super((0, false, false));
+
+  void calculateTotal(count1, count2) {
+    final int total = count1 + count2;
+    final bool isOdd = total.isOdd;
+    final bool isEven = total.isEven;
+    emit((total, isEven, isOdd));
+  }
+}
+
 class CubitExample extends StatefulWidget {
   const CubitExample({
     super.key,
@@ -35,14 +46,16 @@ class _CubitExampleState extends State<CubitExample> {
           BlocProvider(
             create: (context) => Counter2Cubit(),
           ),
+          BlocProvider(
+            create: (context) => TotalCubit()
+              ..calculateTotal(context.read<Counter1Cubit>().state,
+                  context.read<Counter2Cubit>().state),
+          ),
         ],
         child: BlocBuilder<Counter1Cubit, int>(
-          builder: (context, state) {
+          builder: (context, count1) {
             return BlocBuilder<Counter2Cubit, int>(
-              builder: (context, state2) {
-                final int total = state + state2;
-                final bool isEven = total.isEven;
-                final bool isOdd = total.isOdd;
+              builder: (context, count2) {
                 return Column(
                   children: [
                     Row(
@@ -61,7 +74,7 @@ class _CubitExampleState extends State<CubitExample> {
                                 ),
                                 const SizedBox(width: 8),
                                 Text(
-                                  '$state - $state2',
+                                  '$count1 - $count2',
                                   style:
                                       Theme.of(context).textTheme.displayMedium,
                                 ),
@@ -74,8 +87,31 @@ class _CubitExampleState extends State<CubitExample> {
                                 ),
                               ],
                             ),
-                            Text(
-                              'Total Cubit: $total even=$isEven odd=$isOdd',
+                            MultiBlocListener(
+                              listeners: [
+                                BlocListener<Counter1Cubit, int>(
+                                  listener: (context, listener1State) {
+                                    context
+                                        .read<TotalCubit>()
+                                        .calculateTotal(listener1State, count2);
+                                  },
+                                ),
+                                BlocListener<Counter2Cubit, int>(
+                                  listener: (context, listener2State) {
+                                    context
+                                        .read<TotalCubit>()
+                                        .calculateTotal(count1, listener2State);
+                                  },
+                                ),
+                              ],
+                              child: BlocBuilder<TotalCubit,
+                                  (int total, bool isOdd, bool isEven)>(
+                                builder: (context, state) {
+                                  return Text(
+                                    'Total Cubit: ${state.$1} even=${state.$2} odd=${state.$3}',
+                                  );
+                                },
+                              ),
                             ),
                           ],
                         )

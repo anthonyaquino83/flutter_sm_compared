@@ -11,18 +11,18 @@ class InheritedWidgetExample extends StatefulWidget {
 }
 
 class _InheritedWidgetExampleState extends State<InheritedWidgetExample> {
-  int count1 = 0;
-  int count2 = 0;
+  int counter1 = 0;
+  int counter2 = 0;
 
   void incrementCount1() {
     setState(() {
-      count1 = count1 + 1;
+      counter1 = counter1 + 1;
     });
   }
 
   void incrementCount2() {
     setState(() {
-      count2 = count2 + 1;
+      counter2 = counter2 + 1;
     });
   }
 
@@ -33,8 +33,8 @@ class _InheritedWidgetExampleState extends State<InheritedWidgetExample> {
       child: Column(
         children: [
           InheritedCounter(
-            count1: count1,
-            count2: count2,
+            counter1: counter1,
+            counter2: counter2,
             child: Builder(builder: (context) {
               final inheritedCounter = InheritedCounter.of(context);
               return Row(
@@ -53,7 +53,7 @@ class _InheritedWidgetExampleState extends State<InheritedWidgetExample> {
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '${inheritedCounter.count1} - ${inheritedCounter.count2}',
+                            '${inheritedCounter.counter1} - ${inheritedCounter.counter2}',
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           const SizedBox(width: 8),

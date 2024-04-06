@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-final count1 = ValueNotifier(0);
-final count2 = ValueNotifier(0);
+final counter1 = ValueNotifier(0);
+final counter2 = ValueNotifier(0);
 
 class ValueNotifierExample extends StatefulWidget {
   const ValueNotifierExample({
@@ -13,7 +13,7 @@ class ValueNotifierExample extends StatefulWidget {
 }
 
 class _ValueNotifierExampleState extends State<ValueNotifierExample> {
-  int get total => count1.value + count2.value;
+  int get total => counter1.value + counter2.value;
   bool get isEven => total.isEven;
   bool get isOdd => total.isOdd;
 
@@ -21,11 +21,11 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
   void initState() {
     super.initState();
 
-    count1.addListener(() {
+    counter1.addListener(() {
       if (mounted) setState(() {});
     });
 
-    count2.addListener(() {
+    counter2.addListener(() {
       if (mounted) setState(() {});
     });
   }
@@ -46,19 +46,19 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          count1.value++;
+                          counter1.value++;
                         },
                         child: const Text('Counter 1'),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${count1.value} - ${count2.value}',
+                        '${counter1.value} - ${counter2.value}',
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
-                          count2.value++;
+                          counter2.value++;
                         },
                         child: const Text('Counter 2'),
                       ),

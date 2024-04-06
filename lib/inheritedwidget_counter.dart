@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class InheritedCounter extends InheritedWidget {
-  final int count1;
-  final int count2;
+  final int counter1;
+  final int counter2;
 
   const InheritedCounter({
     super.key,
     required super.child,
-    required this.count1,
-    required this.count2,
+    required this.counter1,
+    required this.counter2,
   });
 
-  int get total => count1 + count2;
+  int get total => counter1 + counter2;
   bool get isEven => total.isEven;
   bool get isOdd => total.isOdd;
 
@@ -20,6 +20,6 @@ class InheritedCounter extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant InheritedCounter oldWidget) {
-    return count1 != oldWidget.count1;
+    return counter1 != oldWidget.counter1;
   }
 }
