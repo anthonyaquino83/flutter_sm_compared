@@ -40,7 +40,7 @@ class _SignalsExampleState extends State<SignalsExample> {
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${counter1signal.watch(context)} - ${counter2signal.watch(context)} ',
+                        '${counter1signal.watch(context)} - ${counter2signal.watch(context)}',
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(width: 8),
