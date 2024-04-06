@@ -16,7 +16,7 @@ class RiverpodExample extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ColoredBox(
-      color: Colors.lime,
+      color: Colors.orange,
       child: Column(
         children: [
           Row(

@@ -19,7 +19,7 @@ class _SetStateExampleState extends State<SetStateExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.red,
+      color: Colors.blue,
       child: Column(
         children: [
           Row(

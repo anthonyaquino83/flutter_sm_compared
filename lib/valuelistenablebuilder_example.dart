@@ -48,7 +48,7 @@ class _ValueListenableBuilderExampleState
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.purple,
+      color: Colors.blue.shade100,
       child: Column(
         children: [
           Row(

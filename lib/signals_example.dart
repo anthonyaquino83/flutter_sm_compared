@@ -21,7 +21,7 @@ class _SignalsExampleState extends State<SignalsExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.teal,
+      color: Colors.orange.shade400,
       child: Column(
         children: [
           Row(

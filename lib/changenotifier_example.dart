@@ -14,7 +14,7 @@ class _ChangeNotifierExampleState extends State<ChangeNotifierExample> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.blue,
+      color: Colors.blue.shade300,
       child: Column(
         children: [
           Row(
