@@ -1,16 +1,13 @@
 # flutter_sm_compared
 
-A new Flutter project.
+## Projeto do vídeo "Comparei 7 formas de gerenciar estado no Flutter" do canal AnthonyDev
 
-## Getting Started
+Como escolher a gestão de estado para o seu projeto?
 
-This project is a starting point for a Flutter application.
+Esse vídeo é uma comparacão de 7 formas populares de gerenciar estado no Flutter, vamos analisar bibliotecas internas e externas para isso.
 
-A few resources to get you started if this is your first Flutter project:
+Levaremos em conta o mercado, a separação das regras de negócio e a interação entre as reatividades.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[Link do vídeo no canal AnthonyDev](https://www.youtube.com/watch?v=N3rL00D0BlI)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Se você achou interessante esse conteúdo, por gentileza, deixe uma estrela neste repositório para que eu possa saber que a comunidade tem mais interesse em conteúdos como este.
